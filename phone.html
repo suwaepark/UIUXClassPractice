@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone</title>
+</head>
+<body>
+    <form action="">
+        Phone: <input type="text" id="phone" placeholder="Enter Your Phone.No">
+        <input type="submit" value="click me" onclick="Phonevalidate()">
+    </form>
+    <script>
+        function Phonevalidate(){
+            var phone = document.getElementById("phone").value;
+            if (!phone.match(/^[+](977)[0-9]/)) {
+                alert("start with +977")
+            }
+            else if (phone.length < 14) {
+                alert("Ten Number")
+            }
+            else {
+                alert("Valid Number")
+            }
+        }
+    </script>
+</body>
+</html>

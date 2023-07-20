@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="email">Email:</label>
+        <input type="text" name="" id="email" placeholder="Enter Your Email" onkeyup="Email_Validation()">
+        <span id="error_email"></span>
+        <br><br>
+
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter Your Username" onkeyup="user_val()">
+        <span id="error_username"></span>
+        <br><br>
+
+        <label for="password">Password</label>
+        <input type="text" id="password" placeholder="Enter Your Password" onkeyup="password_val()">
+        <span id="error_password"></span>
+        <br><br>
+
+        <label for="phone">Phone.No</label>
+        <input type="text" id="phone" placeholder="Enter Your Phone.No" onkeyup="phone_val()">
+        <span id="error_phone"></span>
+        <br><br>
+
+        <label for="cpassword">Confrim Password</label>
+        <input type="text" id="cpassword" placeholder="Enter Confrim Your Password" onkeyup="cpassword_val()">
+        <span id="error_cpassword"></span>
+        <br><br>
+
+        <label for="age">Age</label>
+        <input type="text" id="age" placeholder="Enter Your Age" onkeyup="age_val()">
+        <span id="error_age"></span>
+        <br><br>
+
+        <label for="address">Address</label>
+        <input type="text" id="address" placeholder="Enter Your Address" onkeyup="address_val()">
+        <span id="error_address"></span>
+    </form>
+    <script>
+        function user_val() {
+            var username = document.getElementById("username").value;
+            //document.write(username)
+
+            if (!username.match(/^[a-zA-Z]+[0-9]/)) {
+                error_message("error_username", "invalid username", "red")
+            }
+            else if (username.length < 8) {
+                error_message("error_username", "at least 8 character is needed", "red")
+            }
+            else {
+                error_message("error_username", "Valid", "blue")
+            }
+        }
+
+        function Email_Validation() {
+            var email = document.getElementById("email").value;
+            if (email.match(/^[0-9]+/)) {
+                error_message("error_email", "Email should start from alphabet", "red");
+            }
+            else if (!email.match(/^[a-z][a-z]+[0-9]+[@](gmail)[.](com)/)) {
+                error_message("error_email", "invalid format of email", "red")
+            }
+            else {
+                error_message("error_email", "Valid", "blue")
+            }
+        }
+
+        function password_val() {
+            var password = document.getElementById("password").value;
+            if (!password.match(/^[A-Z][a-z]+/)) {
+                error_message("error_password", "start with capital letter", "red")
+            }
+            else if (!password.match(/[0-9]/)) {
+                error_message("error_password", "include number", "red")
+            }
+            else if (!password.match(/[./\!@#$%^&]/)) {
+                error_message("error_password", "include special character", "red")
+            }
+            else if (password.length < 8) {
+                error_message("error_password", "at leats 8 Chr", "red")
+            }
+            else {
+                error_message("error_password", "Valid Password", "blue")
+            }
+        }
+
+        function phone_val() {
+            var phone = document.getElementById("phone").value;
+            if (!phone.match(/^[+](977)[0-9]/)) {
+                error_message("error_phone", "start with +977", "red")
+            }
+            else if (phone.length < 10) {
+                error_message("error_phone", "Ten Number", "red")
+            }
+            else if (phone.length > 14) {
+                error_message("error_phone", "Invalid Number", "red")
+            }
+            else {
+                error_message("error_phone", "Valid Number", "blue")
+            }
+        }
+
+        function cpassword_val() {
+            var password = document.getElementById("password").value;
+            var cpassword = document.getElementById("cpassword").value;
+            if (password != cpassword) {
+                error_message('error_cpassword', 'Not Match', 'red')
+            }
+            else {
+                error_message('error_cpassword', 'Match', 'blue')
+            }
+        }
+
+        function age_val() {
+            var age = document.getElementById("age").value;
+            if (!age.match(/^[0-9]/)) {
+                error_message('error_age', "Age must be in Number", 'red')
+            }
+            else if (age < 18) {
+                error_message('error_age', "You're age must be above than 18", 'red')
+            }
+            else if (age > 80) {
+                error_message('error_age', "You're age must be under 80", 'red')
+            }
+            else {
+                error_message('error_age', 'Valid', 'blue')
+            }
+        }
+
+        function address_val() {
+            var address = document.getElementById("address").value;
+            if (!address.match(/^[a-z]/)) {
+                error_message('error_address', "Address must be in alphabet", 'red')
+            }
+            else if (!address.match(/^[,]/)) {
+                error_message('error_address', "Use comma ','", 'red')
+            }
+            else if (!address.match(/^[a-z]/)) {
+                error_message('error_address', "Name a Place", 'red')
+            }
+            else {
+                error_message('error_address', 'Valid', 'blue')
+            }
+        }
+
+        function error_message(id, msg, color) {
+            document.getElementById(id).innerHTML = msg;
+            document.getElementById(id).style.color = color;
+        }
+    </script>
+</body>
+
+</html>

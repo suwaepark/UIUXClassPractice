@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        Username: <input type="text" id="username" placeholder="Enter Username">
+        <input type="submit" value="click me" onclick="Uservalidate()">
+    </form>
+    <script>
+        function Uservalidate() {
+            var user = document.getElementById("username").value;
+            if (!user.match(/^[a-zA-Z]+[0-9]/)) {
+                alert("At least 8 character")
+            }
+            else {
+                alert("Done")
+            }
+        }
+    </script>
+</body>
+
+</html>

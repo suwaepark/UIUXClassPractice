@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age</title>
+</head>
+<body>
+    <form action="">
+        Age: <input type="text" id="age" placeholder="Enter Your Age">
+        <input type="submit" value="click me" onclick="Agevalidate()">
+    </form>
+    <script>
+        function Agevalidate(){
+            var age = document.getElementById("age").value;
+            if (!age.match(/^[0-9]/)) {
+                alert("Age must be in Number")
+            }
+            else if (age < 18) {
+                alert("You're age must be above than 18")
+            }
+            else if (age > 70) {
+                alert("You're age must be under 70")
+            }
+            else {
+                alert('Valid')
+            }
+        }
+    </script>
+</body>
+</html>
